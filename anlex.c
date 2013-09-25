@@ -695,6 +695,7 @@ int main(int argc,char* args[])
 		if (!(archivo=fopen(args[1],"rt")))
 		{
 			printf("Archivo no encontrado.\n");
+			getchar();
 			exit(1);
 		}
 		while (t.compLex!=EOF){
@@ -704,8 +705,9 @@ int main(int argc,char* args[])
 		fclose(archivo);
 	}else{
 		printf("Debe pasar como parametro el path al archivo fuente.\n");
+		getchar();
 		exit(1);
 	}
-
+    getchar();
 	return 0;
 }
