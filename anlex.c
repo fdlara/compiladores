@@ -1,13 +1,18 @@
 /*
- *	Analizador Léxico	
- *	Curso: Compiladores y Lenguajes de Bajo de Nivel
- *	Práctica de Programación Nro. 1
- *	
- *	Descripcion:
- *	Implementa un analizador léxico que reconoce números, identificadores, 
- * 	palabras reservadas, operadores y signos de puntuación para un lenguaje
- * 	con sintaxis tipo Pascal.
- *	
+ *	TAREA 1 – Análisis Léxico
+ *  Descripción:
+ * Implementar una calculadora de expresiones aritméticas, con manejo de
+ * números reales, enteros o en notación científica. Recibe un archivo fuente
+ * con expresiones aritméticas simples por línea (opcionalmente pueden
+ * contener paréntesis, no es obligatorio considerar), debe realizar un análisis
+ * léxico reconociendo tokens, y luego por línea debe evaluar la expresión
+ * aritmética e imprimir en pantalla el resultado de la evaluación. Se debe
+ * respetar la prioridad de los operadores aritméticos. En caso que una línea
+ * posea un error léxico deberá imprimir un mensaje de error y continuar con
+ * la siguiente línea del archivo fuente. Además los tokens deben ser
+ * introducidos en una tabla de símbolos (se sugiere una representación en
+ * forma de tabla hash).
+ * Alumno: Fabio Lara	
  */
 
 /*********** LIbrerias utilizadas **************/
