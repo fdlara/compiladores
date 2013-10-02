@@ -22,6 +22,7 @@
 #include<stdlib.h>
 #include<ctype.h>
 
+
 /***************** MACROS **********************/
 
 //Codigos
@@ -687,11 +688,47 @@ void sigLex()
 	
 }
 
+/*-----------------------------------------------------------------------------*/
+/*----Definiciones-------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------*/
+char colasalida[35];
+char pilaop[15];
+int topec=0;
+int topep=0;
+/*-----------------------------------------------------------------------------*/
+/*----Funciones y procedimientos ----------------------------------------------*/
+/*-----------------------------------------------------------------------------*/
+void encolar(char num){
+     colasalida[topec]=num;
+     topec++;
+}
+
+/*void apilar(char op){
+     pilaop[topep]=op;
+     topep++;
+     
+}*/
+
+void corte(){
+     int i=0;
+     //int tam=sizeof(colasalida);
+     int tam=30;
+     for (i;i<tam;i++){
+         printf(i);
+     }
+     //printf(itoa(i));
+     //return;
+}
+
+/*-----------------------------------------------------------------------------*/
+/*----funcion main-------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------*/
 int main(int argc,char* args[])
 {
 	// inicializar analizador lexico
 	int complex=0;
-
+    int nrolineacopia=0;
+    int bandera=0;
 	initTabla();
 	initTablaSimbolos();
 	
@@ -703,9 +740,25 @@ int main(int argc,char* args[])
 			getchar();
 			exit(1);
 		}
+		//nrolineacopia=numLinea;
+		//printf("Lin: ",numLinea);
 		while (t.compLex!=EOF){
-			sigLex();
-			printf("Lin %d: %s -> %d\n",numLinea,t.pe->lexema,t.compLex);
+              sigLex();
+              if (nrolineacopia!=numLinea){
+                 //printf("Lin: ",numLinea);
+                 corte();
+                 nrolineacopia=numLinea;
+              }else{
+                    if (t.compLex==284){
+                       char aux = (t.pe->lexema);
+                       encolar(aux);
+                       printf(t.pe->lexema);
+                    }
+                    
+              }                                            
+			
+			//printf("Lin %d: %s ",numLinea,t.pe->lexema,t.compLex);
+			
 		}
 		fclose(archivo);
 	}else{
