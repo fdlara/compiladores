@@ -696,10 +696,11 @@ char pilaop[15];
 int topec=0;
 int topep=0;
 /*-----------------------------------------------------------------------------*/
-/*----Funciones y procedimientos ----------------------------------------------*/
+/*----Funciones ---------------------------------------------------------------*/
 /*-----------------------------------------------------------------------------*/
 void encolar(char num){
      colasalida[topec]=num;
+     //printf("%d ",colasalida[topec]);
      topec++;
 }
 
@@ -709,21 +710,27 @@ void encolar(char num){
      
 }*/
 
-void corte(){
+/*void corte(int linea){
      int i=0;
-     //int tam=sizeof(colasalida);
-     int tam=30;
+     /*int tam=sizeof(colasalida);
+     //int tam=30;
      for (i;i<tam;i++){
-         printf(i);
+         printf("%d ",colasalida[i]);
      }
      //printf(itoa(i));
-     //return;
-}
+     //return 0;
+     //printf("tope %d: \n ",topec);
+     while (i!=topec){
+           printf("%d ",colasalida[i]);
+           i++;
+     }
+     //**
+}*/
 
 /*-----------------------------------------------------------------------------*/
 /*----funcion main-------------------------------------------------------------*/
 /*-----------------------------------------------------------------------------*/
-int main(int argc,char* args[])
+int main(int argc,char *args[])
 {
 	// inicializar analizador lexico
 	int complex=0;
@@ -740,23 +747,25 @@ int main(int argc,char* args[])
 			getchar();
 			exit(1);
 		}
-		//nrolineacopia=numLinea;
-		//printf("Lin: ",numLinea);
+		nrolineacopia=numLinea;
+		printf("Lin:%d ",numLinea);
 		while (t.compLex!=EOF){
               sigLex();
               if (nrolineacopia!=numLinea){
                  //printf("Lin: ",numLinea);
-                 corte();
+                 //corte(numLinea);
+                 printf("\nLin:%d ",numLinea);
                  nrolineacopia=numLinea;
               }else{
                     if (t.compLex==284){
-                       char aux = (t.pe->lexema);
+                       float aux = atof(t.pe->lexema);
+                       //char aux = t.pe->lexema;
                        encolar(aux);
-                       printf(t.pe->lexema);
+                      
                     }
-                    
+                    //printf(t.pe->lexema);
               }                                            
-			
+			printf(t.pe->lexema);
 			//printf("Lin %d: %s ",numLinea,t.pe->lexema,t.compLex);
 			
 		}
