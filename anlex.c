@@ -704,28 +704,20 @@ void encolar(char num){
      topec++;
 }
 
-/*void apilar(char op){
+void apilar(char op){
      pilaop[topep]=op;
      topep++;
      
-}*/
+}
 
-/*void corte(int linea){
+void corte(int linea){
      int i=0;
-     /*int tam=sizeof(colasalida);
-     //int tam=30;
-     for (i;i<tam;i++){
-         printf("%d ",colasalida[i]);
-     }
-     //printf(itoa(i));
-     //return 0;
-     //printf("tope %d: \n ",topec);
-     while (i!=topec){
+     encolar('\0');
+     while (colasalida[i]!='\0'){
            printf("%d ",colasalida[i]);
            i++;
      }
-     //**
-}*/
+}
 
 /*-----------------------------------------------------------------------------*/
 /*----funcion main-------------------------------------------------------------*/
@@ -752,9 +744,8 @@ int main(int argc,char *args[])
 		while (t.compLex!=EOF){
               sigLex();
               if (nrolineacopia!=numLinea){
-                 //printf("Lin: ",numLinea);
-                 //corte(numLinea);
-                 printf("\nLin:%d ",numLinea);
+                 corte(numLinea);
+                 //printf("\nLin:%d ",numLinea);
                  nrolineacopia=numLinea;
               }else{
                     if (t.compLex==284){
@@ -762,6 +753,10 @@ int main(int argc,char *args[])
                        //char aux = t.pe->lexema;
                        encolar(aux);
                       
+                    }else{
+                          if (t.compLex==291 || t.compLex==292){
+                             apilar(t.pe->lexema);
+                          }
                     }
                     //printf(t.pe->lexema);
               }                                            
