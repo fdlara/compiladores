@@ -1,7 +1,8 @@
 compiladores
 ============
 
-Calculadora de expresiones aritmeticas.
+-Calculadora de expresiones aritmeticas (anlex.c).
+-Analizador sintactico (analizador.c).
 
 Desarrollado por Fabio Lara.
 
